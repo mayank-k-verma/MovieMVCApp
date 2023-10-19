@@ -1,0 +1,20 @@
+@model MovieWithImage
+
+@{
+    ViewData["Title"] = "Add Movie";
+}
+
+@if (Model != null)
+{
+    <h1>@Model.MovieData!.Title (@Model.MovieData.Year)</h1>
+    <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ImageData!)" alt="Movie Poster">
+    @foreach (var property in Model.MovieData.GetType().GetProperties())
+    {
+        <p>@property.Name: @property.GetValue(Model.MovieData, null)</p>
+    }
+}
+else
+{
+    <p>No movie details found.</p>
+}
+

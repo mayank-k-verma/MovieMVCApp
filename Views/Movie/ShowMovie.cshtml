@@ -1,0 +1,18 @@
+@model Movie
+@{
+    ViewData["Title"] = "Search Movie";
+}
+
+<form method="post" asp-controller = "Movie" asp-action="GetMovieDetails">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+    </div>
+    <div>
+        <label for="year">Year:</label>
+        <input type="number" name="year" id="year" required>
+    </div>
+    <div>
+        <button type="submit">Search</button>
+    </div>
+</form>
